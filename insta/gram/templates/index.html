@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{% block content %}
+{{bock.super}}
+<div class="container-fluid">
+<div class="row">
+        {% for pics in image_pics%}
+    <div class="col-sm-3">
+            <p>{{act.title}}</p>
+            <img class="img-responsive" src="{{pics.image.url}}" alt="Smiley face" >
+
+
+    </div>
+    {%endfor%}
+  </div>
+</div>
+{% endblock %}
