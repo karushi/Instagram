@@ -2,14 +2,20 @@
 
 {% block content %}
 {{bock.super}}
+
 <div class="container-fluid">
 <div class="row">
+        <div class="image">
         {% for pics in image_pics%}
-    <div class="col-sm-3">
-            <p>{{act.title}}</p>
+         <div class="container">
+             <div class="col-sm-6" style="margin-left:250px">
+            <p>{{pics.image_name}}</p>
             <img class="img-responsive" src="{{pics.image.url}}" alt="Smiley face" >
-
-
+            <div class="header" style="margin:20px"><a href="#"><i class="fa fa-heart-o"></i></a>
+            <a href="#"><i class="fa fa-comment-o"></i></a>
+           </div>
+         </div>
+      </div>
     </div>
     {%endfor%}
   </div>
