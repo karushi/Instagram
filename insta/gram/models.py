@@ -7,6 +7,13 @@ class Profile(models.Model):
   bio = models.TextField(max_length=150)
   photo = models.ImageField(upload_to='pics/',null=True, blank=True)
   user = models.ForeignKey(User)
+
+
+  @classmethod
+  def search_by_user(cls,search_term):
+        
+        profile=cls.objects.filter(user__username__icontains=search_term)
+        return profile   
   
 
 class Image(models.Model):
@@ -35,15 +42,12 @@ class Image(models.Model):
   @classmethod
   def get_image_by_id(id):
       pass
-  
-  def find_profile(self):
-      pass
 
   @classmethod
-  def search_by_user(cls,search_term):
-        
-        images=cls.objects.filter(image_icontains=search_term)
-        return images   
+  def find_profile(self):
+      profile = Profile.objects.all()
+      return profile
+
     
 
 
