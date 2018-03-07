@@ -2,22 +2,19 @@
 
 {% block content %}
 {{bock.super}}
+<div class="container" style="padding:20px;margin-left:350px">      
+{% for pics in image_pics%}
 
-<div class="container-fluid">
-<div class="row">
-        <div class="image">
-        {% for pics in image_pics%}
-         <div class="container">
-             <div class="col-sm-6" style="margin-left:250px">
-            <p>{{pics.image_name}}</p>
-            <img class="img-responsive" src="{{pics.image.url}}" alt="Smiley face" >
-            <div class="header" style="margin:20px"><a href="#"><i class="fa fa-heart-o"></i></a>
-            <a href="#"><i class="fa fa-comment-o"></i></a>
-           </div>
-         </div>
-      </div>
+<div class="card" style="width:450px;">
+   <div class="card-block">
+        <div class="header"><img src="static/images/icon.png" alt="" class="img-circle" height="auto" width="50"></div>
+        <img class="card-img-top" src="{{pics.image.url}}" alt="Card image cap">
+        <p>{{pics.image_name}}</p>
+        <p>{{pics.Comments}}</p>
+       <div class="header" style="margin:20px"><a href="#">
+        <a href="#"><i class="fa fa-heart-o"></i></a>
+        <a href="#"><i class="fa fa-comment-o"></i></a>
+       </div>
     </div>
-    {%endfor%}
-  </div>
-</div>
+ {%endfor%}  </div>
 {% endblock %}
