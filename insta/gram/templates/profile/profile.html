@@ -2,7 +2,11 @@
 p{
   text-align: center;
 }
-
+.img-circle,h1 {
+  margin-left: 350px;
+  padding: 40px;
+  
+}
 
 </style>
 
@@ -13,17 +17,13 @@ p{
 {% block content %}
 {{ block.super}}
   
-  {%for prof in profile%}                                                                                                       <h1>{{ prof.username }} </h1>
-{%if prof.photo%}
-<div class="container">
-  
-      <img class="img-circle center-block" src="{{ prof.photo.url }}" width = "200" height = "200"  />
-{%endif%}
-      
-  <p>{{ prof.bio }}</p>
-  <p>{{ prof.user }}</p>     
+  {%for prof in profile%}
+  {%if prof.user.id == user.id%}
+  <div class="container">
+    <img class="img-circle center-block" src="{{ prof.photo.url }}" width = "250" height = "250"  />
+    <h1>{{ prof.user.username }} </h1>
+  </div>
+  {%endif%}  
   {%endfor%}
-</div>
-</div>
 
   {%endblock%}
