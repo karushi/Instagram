@@ -7,10 +7,12 @@
 
 <div class="card" style="width:450px;">
    <div class="card-block">
-        <div class="header"><img src="static/images/icon.png" alt="" class="img-circle" height="auto" width="50"></div>
+        <span class="header"><img src="static/images/icon2.png" alt="" class="img-circle" height="auto" width="50"></span>
+        <span><p>{{pics.user.username}}</p></span>
         <img class="card-img-top" src="{{pics.image.url}}" alt="Card image cap">
         <p>{{pics.image_name}}</p>
         <p>{{pics.Comments}}</p>
+        <img src="{{pics.profile_pics.photo.urls}}" alt="">
        <div class="header" style="margin:20px"><a href="#">
         <a href="#"><i class="fa fa-heart-o"></i></a>
         <a href="#"><i class="fa fa-comment-o"></i></a>
