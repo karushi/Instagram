@@ -19,13 +19,13 @@
     margin:8px;
    }
    
-   .image-div .header a {
+   .card-block .header a {
     padding:15px 15px;
     color:#322f30;
     float:left;
    }
    
-   .image-div .header a i {
+   .card-block .header a i {
     font-size:18px;
    }
    
@@ -57,19 +57,19 @@
  position:relative;
 }
 
-.image-container .header .img-circle {
+.card-block .header .img-circle {
  width:35px;
  height:35px;
  margin:8px;
 }
 
-.image-container .header a {
+.card-block .header a {
  padding:15px 15px;
  color:#322f30;
  float:left;
 }
 
-.image-container .header a i {
+.card-block .header a i {
  font-size:18px;
 }
 
@@ -86,4 +86,8 @@
  position:relative;
  padding-left:0px;
  padding-right:0px;
+}
+
+.comments p {
+  margin-bottom: 10px;
 }
