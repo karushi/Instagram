@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404,redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,Http404
-from .models import Image,Profile
+from .form import EditProfileForm,UploadForm,CommentsForm
+from .models import Image,Profile,Comment
 
 # Create your views here.
  
@@ -30,3 +31,42 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request,'search.html',{"message":message})
+
+
+@login_required(login_url="/accounts/login/")
+def upload(request):
+    title = 'Insta'
+    current_user = request.user
+    profiles = Profile.objects.all()
+    for profile in profiles:
+        if profile.user.id == current_user.id:
+            if request.method == 'POST':
+                form = UploadForm(request.POST,request.FILES)
+                if form.is_valid():
+                    upload = form.save(commit=False)
+                    upload.user = current_user
+                    upload.profile_pics = profile
+                    upload.save()
+                    return redirect('index')
+            else:
+                form = UploadForm()
+            return render(request,'upload.html',{"title":title, "user":current_user,"form":form})
+
+
+@login_required(login_url='/accounts/login/')
+def comment(request, id):
+    title = 'Instagrum |Comment'
+    post = get_object_or_404(Image, id=id)
+    current_user = request.user
+    if request.method == 'POST':
+        form = CommentsForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.poster = post
+            comment.save()
+            return redirect('index')
+    else:
+        form = CommentsForm()
+        
+    return render(request,'comments.html',{"title":title,"form":form})
