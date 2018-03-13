@@ -14,9 +14,9 @@
   <div class="row">
 
   {% if username %}
-    {% for user in username %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{user.bio}}</h1>
+    {% for profile in username %}
+      <div class="col-sm-6 col-md-12">
+          <h1>{{profile.bio}}</h1>
       </div>
     {% endfor %}
   {% endif %}
