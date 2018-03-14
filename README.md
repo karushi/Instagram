@@ -1,15 +1,15 @@
 # Instagram
 Instagram clone is a clone for the web app of Instagram
 
-#Installation
+# Installation
 $ pip install -r requirements.txt
 
-#Requirements
+# Requirements
 Linux
 Python 3.6 and up
 $ pip install Instaclone
 
-#Usage
+# Usage
 search user # returns 'users by their username'
 view profile# returns a single users profile
 Installing
@@ -26,8 +26,8 @@ Django - The web framework used
 Python - Language
 Postgresql-Database
 Bootstrap4
-#Authors
+# Authors
 pauline karushi 
 
-#License
+# License
 Mit
